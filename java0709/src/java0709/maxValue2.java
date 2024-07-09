@@ -13,10 +13,10 @@ public class maxValue2 {
 		System.out.print("세번째 정수 입력 :");
 		int thirdNumber = scan.nextInt();
 		
-		if(firstNumber > thirdNumber) {
+		if(firstNumber > secondNumber && firstNumber > thirdNumber) {
 			System.out.println(firstNumber);
 		}
-		else if(secondNumber > thirdNumber) {
+		else if(secondNumber > firstNumber && secondNumber > thirdNumber) {
 			System.out.println(secondNumber);
 		}
 		else {

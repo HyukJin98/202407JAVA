@@ -2,6 +2,7 @@ package java0709;
 
 import java.util.Scanner;
 public class Score {
+	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		
@@ -23,6 +24,9 @@ public class Score {
 		else {
 			System.out.print("F");
 		}
+		
+		
+			
 		
 	}
 
