@@ -10,6 +10,7 @@ public class ForEx5_2 {
 		do {
 			System.out.print("n의 값 : ");
 			n = sc.nextInt();
+			sc.close();
 		}while(n <= 0);
 		
 		for(int i=0; i< n/2; i++) {

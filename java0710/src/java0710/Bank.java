@@ -6,15 +6,17 @@ public class Bank {
 		int balance = 0;
 		Scanner sc = new Scanner(System.in);
 		
+		
+		
 		while(run) {
 			System.out.println("------------------------------");
 			System.out.println("1.예금 | 2.출굽 | 3. 잔고 | 4.종료");
 			System.out.println("------------------------------");
 			System.out.println("선택> ");
 			
-			int menuNum = Integer.parseInt(sc.nextLine());
+			int menuNum2 = Integer.parseInt(sc.nextLine());
 			
-			switch(menuNum) {
+			switch(menuNum2) {
 			case 1:
 				System.out.print("예금액> ");
 				balance += Integer.parseInt(sc.nextLine());
