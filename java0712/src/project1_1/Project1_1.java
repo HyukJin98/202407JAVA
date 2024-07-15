@@ -9,7 +9,7 @@ public class Project1_1 {
         Member member = null;
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
-        Member[] list = new Member[100]; // 배열 초기화, 최대 100명의 회원을 가정
+        Member[] list = new Member[100]; // 배열 초기화, 최대 10명의 회원을 가정
         int memCnt = 0;
 
         // 프로그램 시작 시 파일에서 회원 목록 불러오기
