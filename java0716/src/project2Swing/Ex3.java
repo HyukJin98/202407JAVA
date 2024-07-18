@@ -4,7 +4,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-public class  Project1_2{
+public class Ex3 {
 
 	public static void main(String[] args) {
 		Member[] list = {
