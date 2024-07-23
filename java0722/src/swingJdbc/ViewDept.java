@@ -54,7 +54,7 @@ public class ViewDept extends JFrame{
 		jp2.add(ta);
 		con.add(jp2,BorderLayout.CENTER);
 		
-		this.setTitle("view dept 테이블");
+		this.setTitle("select 문장을 넣으세요");
 		this.setBounds(1000,200,500,400);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,12 +70,12 @@ public class ViewDept extends JFrame{
 				try {
 					ResultSet rs = stmt.executeQuery(sql);
 					ta.setText("");
-					if(!rs.next()) {
+					boolean flag = true;
+					if(flag) {
 						JOptionPane.showMessageDialog(jf,"해당 자료 없습니다.","정보",JOptionPane.WARNING_MESSAGE);
 					}
 					while(rs.next()) {
-						
-						
+						flag = false;
 						int deptno = rs.getInt("deptno");
 						String dname = rs.getString("dname");
 						String loc = rs.getString("loc");

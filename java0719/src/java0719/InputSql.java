@@ -13,6 +13,7 @@ public class InputSql extends JFrame {
     
     private JTextArea displayArea;
 
+    JFrame jf;
     public InputSql() {
         setTitle("SQL 출력 프로그램");
         setLayout(new BorderLayout());
@@ -22,7 +23,7 @@ public class InputSql extends JFrame {
         
         loadDeptButton = new JButton("출력");
 
-        inputPanel.add(new JLabel("SQL 구문을 입력하십시오 :"));
+        inputPanel.add(new JLabel("select 문을 입력하세요 :"));
         inputPanel.add(deptQueryField);
         inputPanel.add(loadDeptButton);
   
@@ -70,12 +71,10 @@ public class InputSql extends JFrame {
                 displayArea.append("\n");
             }
 
-            rs.close();
-            stmt.close();
-            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
-            displayArea.setText("Error loading data");
+            JOptionPane.showMessageDialog(jf,"해당 자료 없습니다.","정보",JOptionPane.WARNING_MESSAGE);
         }
     }
 
