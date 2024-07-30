@@ -1,9 +1,12 @@
-package java0729;
+package java0730;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Rectangle;
 
-class Obstacle {
+public class Obstacle {
     private int x, y, width, height, speed;
+    private Color color;
 
     public Obstacle(int x, int y, int width, int height, int speed) {
         this.x = x;
@@ -11,6 +14,7 @@ class Obstacle {
         this.width = width;
         this.height = height;
         this.speed = speed;
+        this.color = Color.BLACK;
     }
 
     public void move() {
@@ -22,12 +26,11 @@ class Obstacle {
     }
 
     public Rectangle getBounds() {
-        // y 좌표를 수정하여 장애물의 위치를 맞춥니다
         return new Rectangle(x, y, width, height);
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.RED);
+        g.setColor(color);
         g.fillRect(x, y, width, height);
     }
 }

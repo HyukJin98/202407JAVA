@@ -1,4 +1,4 @@
-package java0729;
+package java0730;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,26 +6,31 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class GamePanel extends JPanel implements ActionListener {
+public class GeometryDashGame extends JPanel implements ActionListener {
     private Timer timer;
-    private int dinoY = 250;
-    private int dinoVelY = 0;
+    private int characterY = 200;
+    private int characterVelY = 0;
     private boolean isJumping = false;
     private boolean isFallingFaster = false;
     private final int GROUND = 250;
-    private final int DINO_WIDTH = 30;
-    private final int DINO_HEIGHT = 30;
+    private final int CHARACTER_WIDTH = 30;
+    private final int CHARACTER_HEIGHT = 30;
     private final int OBSTACLE_WIDTH = 20;
     private final int OBSTACLE_HEIGHT = 50;
     private int score = 0;
     private int time = 0;
     private int obstacleSpeed = 10;
     private int obstacleInterval = 2000;
-    private final int SPEED_INCREMENT_INTERVAL = 10000;
+    private final int SPEED_INCREMENT_INTERVAL = 5000;
     private final int SPEED_INCREMENT_AMOUNT = 2;
     private final int INTERVAL_DECREMENT_AMOUNT = 100;
     private boolean isGameOver = false;
@@ -35,11 +40,9 @@ public class GamePanel extends JPanel implements ActionListener {
     private Timer obstacleSpawnTimer;
     private Timer difficultyIncreaseTimer;
 
-    private static final String HIGH_SCORE_FILE = "highscore.dat"; // 최고 기록 파일 이름
-
-    public GamePanel() {
+    public GeometryDashGame() {
         setPreferredSize(new Dimension(800, 300));
-        setBackground(Color.WHITE);
+        setBackground(Color.CYAN);
 
         timer = new Timer(20, this);
         timer.start();
@@ -65,7 +68,7 @@ public class GamePanel extends JPanel implements ActionListener {
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_SPACE && !isJumping && !isGameOver) {
                     isJumping = true;
-                    dinoVelY = -15;
+                    characterVelY = -15;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_DOWN && isJumping && !isGameOver) {
                     isFallingFaster = true;
@@ -94,24 +97,23 @@ public class GamePanel extends JPanel implements ActionListener {
         add(restartButton);
 
         obstacles = new ArrayList<>();
-        loadHighScore(); // 게임 시작 시 최고 기록을 불러옴
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (!isGameOver) {
             if (isJumping) {
-                dinoY += dinoVelY;
-                dinoVelY += 1;
-                if (dinoY >= GROUND) {
-                    dinoY = GROUND;
-                    dinoVelY = 0;
+                characterY += characterVelY;
+                characterVelY += 1;
+                if (characterY >= GROUND) {
+                    characterY = GROUND;
+                    characterVelY = 0;
                     isJumping = false;
                 }
             }
 
             if (isFallingFaster) {
-                dinoVelY += 2;
+                characterVelY += 2;
             }
 
             for (Obstacle obstacle : obstacles) {
@@ -131,17 +133,17 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private void checkCollision() {
-        Rectangle dinoRect = new Rectangle(50, dinoY, DINO_WIDTH, DINO_HEIGHT);
+        Rectangle characterRect = new Rectangle(50, characterY, CHARACTER_WIDTH, CHARACTER_HEIGHT);
 
         for (Obstacle obstacle : obstacles) {
-            if (dinoRect.intersects(obstacle.getBounds())) {
+            if (characterRect.intersects(obstacle.getBounds())) {
                 isGameOver = true;
                 timer.stop();
                 obstacleSpawnTimer.stop();
                 difficultyIncreaseTimer.stop();
                 if (score > highScore) {
                     highScore = score;
-                    saveHighScore(); // 최고 기록을 파일에 저장
+                    saveHighScore();
                 }
                 restartButton.setVisible(true);
                 repaint();
@@ -169,8 +171,8 @@ public class GamePanel extends JPanel implements ActionListener {
 
     private void restartGame() {
         isGameOver = false;
-        dinoY = GROUND;
-        dinoVelY = 0;
+        characterY = GROUND;
+        characterVelY = 0;
         isJumping = false;
         isFallingFaster = false;
         obstacles.clear();
@@ -186,15 +188,15 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     private void loadHighScore() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(HIGH_SCORE_FILE))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("highscore.dat"))) {
             highScore = ois.readInt();
         } catch (IOException e) {
-            highScore = 0; // 파일이 없거나 읽기 오류가 발생한 경우 기본값 설정
+            highScore = 0;
         }
     }
 
     private void saveHighScore() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(HIGH_SCORE_FILE))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("highscore.dat"))) {
             oos.writeInt(highScore);
         } catch (IOException e) {
             e.printStackTrace();
@@ -204,26 +206,33 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.GREEN);
-        g.fillRect(50, dinoY, DINO_WIDTH, DINO_HEIGHT);
+        g.setColor(Color.RED);
+        g.fillRect(50, characterY, CHARACTER_WIDTH, CHARACTER_HEIGHT);
 
         for (Obstacle obstacle : obstacles) {
             obstacle.draw(g);
         }
 
-        // 점수와 시간 표시
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 20));
         g.drawString("Score: " + score, 10, 20);
         g.drawString("Time: " + (time / 50) + "s", 10, 40);
         g.drawString("High Score: " + highScore, 10, 60);
 
-        // 게임 오버 시 최고 기록과 다시 시작 버튼 표시
         if (isGameOver) {
             g.setFont(new Font("Arial", Font.BOLD, 30));
             g.setColor(Color.RED);
             g.drawString("Game Over", 300, 100);
             g.setColor(Color.BLACK);
         }
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Geometry Dash");
+        GeometryDashGame gamePanel = new GeometryDashGame();
+        frame.add(gamePanel);
+        frame.pack();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
     }
 }
