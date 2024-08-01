@@ -2,7 +2,7 @@ package java0729;
 
 import javax.swing.*;
 
-public class Main {
+public class GameMain {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Dino Jump Game");
         GamePanel gamePanel = new GamePanel();
