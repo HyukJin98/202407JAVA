@@ -3,10 +3,10 @@
 <%@ page import="java.sql.*" %>   
 
 <%
-    Class.forName("org.mariadb.jdbc.Driver");
+    Class.forName("com.mysql.cj.jdbc.Driver");
     try ( 
         Connection conn = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:3306/jspdb", "jsp", "1234");
+                "jdbc:mysql://localhost:3307/spring5fs", "root", "mysql");
         Statement stmt = conn.createStatement();
             
             // 지정된 아이디와 비밀번호를 가진 레코드가 있는지 쿼리 

@@ -12,10 +12,10 @@
 <%
     request.setCharacterEncoding("utf-8");
 
-    Class.forName("org.mariadb.jdbc.Driver");
+    Class.forName("com.mysql.cj.jdbc.Driver");
     try ( 
         Connection conn = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:3306/jspdb", "jsp", "1234");
+                "jdbc:mysql://localhost:3307/spring5fs", "root", "mysql");
         Statement stmt = conn.createStatement();
         
         // 이미 존재하는 아이디인지 체크하는 쿼리 

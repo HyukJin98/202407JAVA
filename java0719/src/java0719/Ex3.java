@@ -15,12 +15,12 @@ public class Ex3 {
 	                          "customer_tel varchar(13), " +
 				              "customer_addr varchar(20))";
 		
-		String URL = "jdbc:mysql://localhost:3306/spring5fs";
+		String URL = "jdbc:mysql://localhost:3307/spring5fs";
 		Connection con = null;
 		Statement stmt = null;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con = DriverManager.getConnection(URL,"spring5","spring5");
+			con = DriverManager.getConnection(URL,"root","mysql");
 			System.out.println("Mysql 접속 성공!");
 			stmt = con.createStatement();
 			int num = stmt.executeUpdate(createString);
