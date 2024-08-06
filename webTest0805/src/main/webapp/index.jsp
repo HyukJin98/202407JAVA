@@ -283,15 +283,15 @@ footer .inner .lower p {
         <video src="img/ddong.mp4" autoplay muted loop></video>
         <div class="inner">
             <h1>Hello everyone</h1>
-            <p>welcome to the patrick site<br>
+            <p>welcome to the patrick Store and gallery<br>
                </p>
-            <a href="#">view detail</a>
+            <a href="shop.jsp">view shop</a>
         </div>
     </figure>
 
     <section>
         <div class="inner">
-            <h1>RECENT NEWS</h1>
+            <h1>Patrick Worlds</h1>
             <div class="wrap">
                 <article>
                     <div class="pic">

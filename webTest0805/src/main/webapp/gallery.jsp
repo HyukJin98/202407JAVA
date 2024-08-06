@@ -13,6 +13,24 @@
             margin: 0;
             padding: 0;
         }
+          a {
+        text-decoration: none;
+        color: #fff;
+        background-color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        font-size: 1.2rem;
+        transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    a:hover {
+        background-color: #c2185b;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    a:active {
+        background-color: #9c0b46;
+    }
         .container {
             width: 80%;
             max-width: 1200px;
@@ -47,10 +65,14 @@
 
 <div class="container">
     <h1>갤러리</h1>
+    <a href="index.jsp">홈</a>
     <div class="gallery">
+    
         <img src="img/sponge.jfif" alt="patrick">
         <img src="img/patrick.jfif" alt="patrick">
-
+        <img src="img/patrickHip.jfif" alt="patrick">
+        <img src="img/maxresdefault.jpg" alt="patrick">
+        <img src="img/s2q33j23pj02068k8j7v.jpg" alt="patrick">
     </div>
 </div>
 
