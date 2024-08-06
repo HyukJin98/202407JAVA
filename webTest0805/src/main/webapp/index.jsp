@@ -297,7 +297,7 @@ footer .inner .lower p {
                     <div class="pic">
                         <img src="img/뚱별.jfif" alt="1번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">now purchase it!</a></h2>
+                    <h2><a href="shop.jsp">now purchase it!</a></h2>
                     <p></p>
                 </article>
 
@@ -305,7 +305,7 @@ footer .inner .lower p {
                     <div class="pic">
                         <img src="img/뚱베.jfif" alt="2번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">now purchase it!</a></h2>
+                    <h2><a href="shop.jsp">now purchase it!</a></h2>
                     <p></p>
                 </article>
 
