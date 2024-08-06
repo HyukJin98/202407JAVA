@@ -115,7 +115,7 @@
 <body>
 
 <figure>
-        <video src="img/visual.mp4" autoplay muted loop></video>
+        <video src="img/ddong.mp4" autoplay muted loop></video>
         <div class="inner">
         </div>
     </figure>

@@ -8,7 +8,7 @@ import util.JDBCUtil;
 
 public class BoardDAO {
 
-    public List<BoardDTO> getAllBoards() {
+    public List<BoardDTO> getAllBoards() {                // 리스트 사용해서 select 쿼리 작성하기
         List<BoardDTO> boardList = new ArrayList<>();
         String query = "SELECT * FROM boards";
         Connection conn = null;
@@ -39,7 +39,7 @@ public class BoardDAO {
         return boardList;
     }
 
-    public BoardDTO getBoardById(int id) {
+    public BoardDTO getBoardById(int id) {                    // id 기준으로 검색하기
         BoardDTO board = null;
         String query = "SELECT * FROM boards WHERE id = ?";
         Connection conn = null;
@@ -70,7 +70,7 @@ public class BoardDAO {
         return board;
     }
 
-    public void addBoard(BoardDTO board) {
+    public void insertBoard(BoardDTO board) {                                             //인서트 보드
         String query = "INSERT INTO boards (title, content, author) VALUES (?, ?, ?)";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -88,8 +88,8 @@ public class BoardDAO {
             JDBCUtil.close(pstmt, conn);
         }
     }
-
-    public void updateBoard(BoardDTO board) {
+ 
+    public void updateBoard(BoardDTO board) {               //수정 보드
         String query = "UPDATE boards SET title = ?, content = ?, author = ? WHERE id = ?";
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -109,7 +109,7 @@ public class BoardDAO {
         }
     }
 
-    public void deleteBoard(int id) {
+    public void deleteBoard(int id) {                     //삭제 보드
         String query = "DELETE FROM boards WHERE id = ?";
         Connection conn = null;
         PreparedStatement pstmt = null;

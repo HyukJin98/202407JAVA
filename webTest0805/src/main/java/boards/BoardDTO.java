@@ -4,12 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BoardDTO implements Serializable {
-    private int id;
+    private int id;  
     private String title;
     private String content;
     private String author;
-    private Date createdAt;
-    private Date updatedAt;
+    private Date createdAt; //작성시간
+    private Date updatedAt; //수정시간
 
     // Constructors
     public BoardDTO() {}

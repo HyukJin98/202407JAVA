@@ -35,7 +35,7 @@ try {
 %>
         <script>
             alert('가입이 완료되었습니다.');
-            window.close();
+            window.close();          //로그인 창에서 회원가입 후 다시 로그인 창으로
         </script>
 <%          
 

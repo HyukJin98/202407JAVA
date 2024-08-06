@@ -16,13 +16,13 @@
         String content = request.getParameter("content");
         String author = request.getParameter("author");
 
-        BoardDTO board = new BoardDTO();
-        board.setTitle(title);
-        board.setContent(content);
-        board.setAuthor(author);
+        BoardDTO dto = new BoardDTO();
+        dto.setTitle(title);
+        dto.setContent(content);
+        dto.setAuthor(author);
 
         BoardDAO dao = new BoardDAO();
-        dao.addBoard(board);
+        dao.insertBoard(dto); 
 
         response.sendRedirect("board_list.jsp");
     %>

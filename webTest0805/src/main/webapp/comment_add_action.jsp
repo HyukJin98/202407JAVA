@@ -16,15 +16,15 @@
         String content = request.getParameter("content");
         String author = (String) session.getAttribute("userName");
 
-        CommentDTO comment = new CommentDTO();
-        comment.setBoardId(boardId);
-        comment.setContent(content);
-        comment.setAuthor(author);
+        CommentDTO dto = new CommentDTO();
+        dto.setBoardId(boardId);
+        dto.setContent(content);
+        dto.setAuthor(author);
 
         CommentDAO dao = new CommentDAO();
-        dao.addComment(comment);
+        dao.insertComment(dto);
 
-        response.sendRedirect("board_view.jsp?id=" + boardId);
+        response.sendRedirect("board_view.jsp?id=" + boardId);  
     %>
 </body>
 </html>

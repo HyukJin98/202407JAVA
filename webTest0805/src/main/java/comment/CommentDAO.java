@@ -8,7 +8,7 @@ import util.JDBCUtil;
 
 public class CommentDAO {
 
-    public List<CommentDTO> getCommentsByBoardId(int boardId) {
+    public List<CommentDTO> getCommentsByBoardId(int boardId) {        // id로 셀렉하기
         List<CommentDTO> commentList = new ArrayList<>();
         String query = "SELECT * FROM comments WHERE board_id = ?";
         Connection conn = null;
@@ -39,7 +39,7 @@ public class CommentDAO {
         return commentList;
     }
 
-    public void addComment(CommentDTO comment) {
+    public void insertComment(CommentDTO comment) {         //인서트
         String query = "INSERT INTO comments (board_id, content, author) VALUES (?, ?, ?)";
         Connection conn = null;
         PreparedStatement pstmt = null;

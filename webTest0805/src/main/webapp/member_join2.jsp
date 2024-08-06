@@ -35,7 +35,7 @@ try {
 %>
         <script>
             alert('가입이 완료되었습니다.');
-            window.location.href = 'index.jsp';
+            window.location.href = 'index.jsp';   //메인 화면에서 회원가입하고 다시 home으로 돌아감
         </script>
 <%          
 

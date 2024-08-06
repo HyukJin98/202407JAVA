@@ -16,15 +16,15 @@
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
-        BoardDTO board = new BoardDTO();
-        board.setId(id);
-        board.setTitle(title);
-        board.setContent(content);
+        BoardDTO dto = new BoardDTO();
+        dto.setId(id);
+        dto.setTitle(title);
+        dto.setContent(content);
 
         BoardDAO dao = new BoardDAO();
-        dao.updateBoard(board);
+        dao.updateBoard(dto);
 
-        response.sendRedirect("board_view.jsp?id=" + id);
+        response.sendRedirect("board_view.jsp?id=" + id); //업데이트 하면서 board_view에 id 매개변수 전달
     %>
 </body>
 </html>

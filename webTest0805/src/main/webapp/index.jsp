@@ -254,10 +254,12 @@ footer .inner .lower p {
 
     <header>
         <div class="inner">
-            <h1><a href="#">게시판 홈</a></h1>
+            <h1><a href="#">Patrick Store</a></h1>
             <ul id="gnb">
-                <li><a href="index.jsp">홈</a></li>
-                <li><a href="board_list.jsp">게시판</a></li>
+                <li><a href="index.jsp">home</a></li>
+                <li><a href="shop.jsp">shop</a>
+                <li><a href="gallery.jsp">gallery</a>
+                <li><a href="board_list.jsp">community</a></li>
             </ul>
             <%
                 String userName = (String)session.getAttribute("userName");
@@ -278,10 +280,10 @@ footer .inner .lower p {
     </header>
 
     <figure>
-        <video src="img/visual.mp4" autoplay muted loop></video>
+        <video src="img/ddong.mp4" autoplay muted loop></video>
         <div class="inner">
-            <h1>안녕하십니까</h1>
-            <p>안녕하십니까 <br>
+            <h1>Hello everyone</h1>
+            <p>welcome to the patrick site<br>
                </p>
             <a href="#">view detail</a>
         </div>
@@ -293,38 +295,34 @@ footer .inner .lower p {
             <div class="wrap">
                 <article>
                     <div class="pic">
-                        <img src="img/news1.jpg" alt="1번째 콘텐츠 이미지">
+                        <img src="img/뚱별.jfif" alt="1번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">Lorem ipsum dolor sit.</a></h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae minus, eaque corrupti vero ad
-                        maiores!</p>
+                    <h2><a href="#">now purchase it!</a></h2>
+                    <p></p>
                 </article>
 
                 <article>
                     <div class="pic">
-                        <img src="img/news2.jpg" alt="2번째 콘텐츠 이미지">
+                        <img src="img/뚱베.jfif" alt="2번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">Lorem ipsum dolor sit.</a></h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae minus, eaque corrupti vero ad
-                        maiores!</p>
+                    <h2><a href="#">now purchase it!</a></h2>
+                    <p></p>
                 </article>
 
                 <article>
                     <div class="pic">
-                        <img src="img/news3.jpg" alt="3번째 콘텐츠 이미지">
+                        <img src="img/patrick.jfif" alt="3번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">Lorem ipsum dolor sit.</a></h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae minus, eaque corrupti vero ad
-                        maiores!</p>
+                    <h2><a href="gallery.jsp">so cute patrick</a></h2>
+                    <p>zz</p>
                 </article>
 
                 <article>
                     <div class="pic">
-                        <img src="img/news4.jpg" alt="4번째 콘텐츠 이미지">
+                        <img src="img/sponge.jfif" alt="4번째 콘텐츠 이미지">
                     </div>
-                    <h2><a href="#">Lorem ipsum dolor sit.</a></h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae minus, eaque corrupti vero ad
-                        maiores!</p>
+                    <h2><a href="gallery.jsp">Look at this.</a></h2>
+                    <p>patrick is so big</p>
                 </article>
             </div>
         </div>
@@ -333,7 +331,7 @@ footer .inner .lower p {
     <footer>
         <div class="inner">
             <div class="upper">
-                <h1>DCODELAB</h1>
+                <h1>Patrick</h1>
                 <ul>
                     <li><a href="#">Policy</a></li>
                     <li><a href="#">Terms</a></li>

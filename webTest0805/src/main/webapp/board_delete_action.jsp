@@ -13,7 +13,7 @@
     request.setCharacterEncoding("utf-8");
         int boardId = Integer.parseInt(request.getParameter("id"));
         BoardDAO dao = new BoardDAO();
-        dao.deleteBoard(boardId);
+        dao.deleteBoard(boardId); //보드 아이디로 게시글 삭제하기
 
         response.sendRedirect("board_list.jsp");
     %>
