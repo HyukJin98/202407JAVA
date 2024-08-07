@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-    String user = (String) session.getAttribute("user");
-    if (user == null) {
-%>
-       <script>
-       alert('로그인 필요!');
-       window.location.href = 'login_main.jsp';
-       </script>    
-       <%
-    }
-       %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -125,6 +115,17 @@
 </style>
 </head>
 <body>
+<%
+    String userName = (String) session.getAttribute("userName");
+    if (userName == null) {
+%>
+       <script>
+       alert('로그인 필요!');
+       window.location.href = 'login_main.jsp';
+       </script>    
+       <%
+    }else{
+       %>
     <header>
         뚱이 스토어
     </header>
@@ -154,5 +155,6 @@
     <footer>
         © 2024 상점 이름. 모든 권리 보유.
     </footer>
+    <%} %>
 </body>
 </html>

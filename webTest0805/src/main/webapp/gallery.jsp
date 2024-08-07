@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-    String user = (String) session.getAttribute("user");
-    if (user == null) {
-%>
-       <script>
-       alert('로그인 필요!');
-       window.location.href = 'login_main.jsp';
-       </script>    
-       <%
-    }
-       %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -74,7 +64,17 @@
     </style>
 </head>
 <body>
-
+<%
+    String userName = (String) session.getAttribute("userName");
+    if (userName == null) {
+%>
+       <script>
+       alert('로그인 필요!');
+       window.location.href = 'login_main.jsp';
+       </script>    
+       <%
+    }else{
+       %>
 <div class="container">
     <h1>갤러리</h1>
     <a href="index.jsp">홈</a>
@@ -87,6 +87,6 @@
         <img src="img/s2q33j23pj02068k8j7v.jpg" alt="patrick">
     </div>
 </div>
-
+<%} %>
 </body>
 </html>
