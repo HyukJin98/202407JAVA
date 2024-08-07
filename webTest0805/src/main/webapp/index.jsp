@@ -1,9 +1,12 @@
 <%@page import="java.util.List"%>
 <%@page import="member.MemberDTO"%>
 <%@page import="member.MemberDAO"%>
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+String user = (String) session.getAttribute("user");
+boolean isLoggedIn = (user != null);
 request.setCharacterEncoding("utf-8");
 String id = request.getParameter("id");
 String pw = request.getParameter("pw");
@@ -327,6 +330,7 @@ footer .inner .lower p {
             </div>
         </div>
     </section>
+ 
 
     <footer>
         <div class="inner">
