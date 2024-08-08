@@ -4,7 +4,8 @@ import javax.swing.*;
 
 public class GameMain {
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Dino Jump Game");
+        System.out.println("혁진이 바보 ");
+    	JFrame frame = new JFrame("Dino Jump Game");
         GamePanel gamePanel = new GamePanel();
         frame.add(gamePanel);
         frame.pack();

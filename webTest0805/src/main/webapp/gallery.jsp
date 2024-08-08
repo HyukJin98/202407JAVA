@@ -66,7 +66,7 @@
 <body>
 <%
     String userName = (String) session.getAttribute("userName");
-    if (userName == null) {
+    if (userName == null) { //로그인 하지 않았다면 밑에 문장 실행
 %>
        <script>
        alert('로그인 필요!');
