@@ -284,7 +284,8 @@ footer .inner .lower p {
         <video src="img/ddong.mp4" autoplay muted loop></video>
         <div class="inner">
             <h1>Hello everyone</h1>
-            <p>welcome to the patrick Store and gallery<br>
+            <p>welcome to the patrick Store and gallery
+            <br>Receive 100 points upon signing up<br> now sign up!!!
                </p>
             <a href="shop.jsp">view shop</a>
         </div>
