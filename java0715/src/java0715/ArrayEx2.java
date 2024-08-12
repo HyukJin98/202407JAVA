@@ -20,8 +20,8 @@ public class ArrayEx2 {
 //      이터레이터 (자바 디자인 패턴)
 		Iterator<Object> it = list.iterator();
 		while(it.hasNext()) {
-			String str = it.next();
-			int num = (int)str + 100;
+			String str = (String) it.next();
+			int num = Integer.parseInt(str) + 100;
 			System.out.println(str);
 		}
 		
