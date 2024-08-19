@@ -43,7 +43,7 @@ public class CartDAO {
 
 	public void updateProduct(Product product) {
 		session.update("ProductMapper.updateProduct", product);
-	}
+	} 
 
 //	public void deleteProduct(int id) {
 
