@@ -27,6 +27,7 @@
                 success: function(data) {
                     const printData = $('.print-data');
                     printData.empty();
+                    console.log(printData);
                     data.forEach(post => {
                         printData.append(`<li>id: ${post.id} <br>title: ${post.title} <br>author: ${post.author}</li>`);
                     });
