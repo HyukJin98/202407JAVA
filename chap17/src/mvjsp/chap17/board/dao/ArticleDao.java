@@ -14,7 +14,7 @@ import mvjsp.chap17.board.model.Article;
 import mvjsp.jdbc.JdbcUtil;
 
 public class ArticleDao {
-//싱글턴
+
 	private static ArticleDao instance = new ArticleDao();
 	public static ArticleDao getInstance() {
 		return instance;

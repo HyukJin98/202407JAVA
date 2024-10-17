@@ -16,7 +16,7 @@ public class ListArticleService {
 		return instance;
 	}
 	
-	public static final int COUNT_PER_PAGE = 3;
+	public static final int COUNT_PER_PAGE = 10;
 
 	public ArticleListModel getArticleList(int requestPageNumber) {
 		if (requestPageNumber < 0) {
@@ -49,7 +49,7 @@ public class ListArticleService {
 					endRow);
 			return articleListView;
 		} catch (SQLException e) {
-			throw new RuntimeException("DB ï¿½ï¿½ï¿½ï¿½: "+e.getMessage(), e);
+			throw new RuntimeException("DB ¿¡·¯: "+e.getMessage(), e);
 		} finally {
 			JdbcUtil.close(conn);
 		}
