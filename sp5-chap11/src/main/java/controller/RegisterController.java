@@ -1,10 +1,14 @@
 package controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,8 +49,8 @@ public class RegisterController {
 	}
 
 	@PostMapping("/register/step3")
-	public String handleStep3(RegisterRequest regReq, BindingResult errors) {
-		new RegisterRequestValidator().validate(regReq, errors);
+	public String handleStep3(@Valid RegisterRequest regReq, Errors errors) {
+//		new RegisterRequestValidator().validate(regReq, errors);
 		if(errors.hasErrors())
 			return "register/step2";
 		try {
@@ -57,6 +61,11 @@ public class RegisterController {
 			errors.reject("notMatchingPassword");
 			return "register/step2";
 		}
+	}
+	
+	@InitBinder
+	protected void InitBinder(WebDataBinder binder) {
+		binder.setValidator(new RegisterRequestValidator());
 	}
 
 }
